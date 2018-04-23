@@ -12,6 +12,7 @@
 }
 
 .lifecounter {
+    position: relative;
     background: url('./images/paper_fibers.png');
     background-size: contain;
     padding: 20px;
@@ -20,6 +21,7 @@
 	text-align: center;
     font-size: 1.5em;
     opacity: 0.85;
+    @include noselect;
     &.active {
         opacity: 1;
     }
@@ -34,6 +36,7 @@
     &__body {
         border: 1px solid $gray;
         border-top: 0;
+        padding-bottom: 25px;
     }
     .actions-btns {
         display: flex;
@@ -73,5 +76,37 @@
                 vertical-align: middle;
             }
         }
+    }
+
+    div[class*='-dialog'] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: $white;
+        opacity: 0;
+        z-index: -9;
+        .img-container {
+            width: 7rem;
+            height: auto;
+            margin: 0 auto;
+            img {
+                width: 100%;
+            }
+        }
+        h2 {
+            vertical-align: middle;
+            margin: 0;
+        }
+    }
+    div.defeat-dialog {
+        background: rgba(250, 0, 0, .9);
+    }
+    div.victory-dialog {
+        background: rgba(0, 250, 0, .9);
     }
 }
