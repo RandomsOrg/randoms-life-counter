@@ -45,6 +45,7 @@ class LifeCounter extends Component {
                         <div className="counter__display">
                             <i className="fas fa-heart"></i>
                             <span>{ this.state.life }</span>
+                            <i className="reset fas fa-sync"></i>
                         </div>
 
                         <i onClick={this.removeLife} className="counter__remove fas fa-minus"></i>
