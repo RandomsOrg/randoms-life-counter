@@ -1,0 +1,21 @@
+.lifecounter-wrapper {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.lifecounter {
+    background: url('./images/paper_fibers.png') repeat-x;
+    background-size: contain;
+    flex: 1;
+	margin: 5px;
+	text-align: center;
+	font-size: 1.5em;
+}

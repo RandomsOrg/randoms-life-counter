@@ -1,0 +1,11 @@
+// Defaults
+body {
+    font-family: 'Eczar', serif;
+    background: url('./images/dark_leather.png');
+    min-height: 100vh;
+    background-size: contain;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+}
