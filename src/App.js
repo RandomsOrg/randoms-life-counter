@@ -6,8 +6,10 @@ class App extends Component {
     return (
       <div className="container">
         <div className="lifecounter-wrapper">
-          <LifeCounter></LifeCounter>
-          <LifeCounter></LifeCounter>
+          <LifeCounter name="Andreolle" isActive="true"></LifeCounter>
+        </div>
+        <div className="lifecounter-wrapper">
+          <LifeCounter name="Adversário"></LifeCounter>
         </div>
       </div>
     );
