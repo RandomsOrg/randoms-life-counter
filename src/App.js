@@ -5,7 +5,7 @@ class App extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			activeCard: 1
+			activeCard: '1'
 		}
 	}
 	card(id){
