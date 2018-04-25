@@ -7,10 +7,11 @@ class LifeCounter extends Component {
         super(props);
         this.state = {
             life: 20,
-            isActive: true
+            defeated: false
         }
 
         this.addLife = this.addLife.bind(this);
+        this.surrender = this.surrender.bind(this);
         this.removeLife = this.removeLife.bind(this);
         this.activeTurn = this.activeTurn.bind(this);
     }
@@ -25,10 +26,8 @@ class LifeCounter extends Component {
         }));
     }
     activeTurn() {
-        console.log(this)
-        this.setState(prevState => ({
-            isActive: !prevState.isActive
-        }));
+        const _props = this.props;
+        _props.card(_props.cardID)
     }
     getInitialState = () => {
         const initialState = {
@@ -39,16 +38,22 @@ class LifeCounter extends Component {
     resetLife = () => {
         this.setState(this.getInitialState());
     }
+    surrender = () => {
+        this.setState({
+            defeated: true
+        });
+    }
+
     render() {
         return (
-            <div className={"lifecounter " + (this.state.isActive ? 'active' : '')}>
+            <div className={"lifecounter " + (this.props.activeCard !== this.props.cardID ? 'active' : '')}>
                 <div className="lifecounter__header">
                     <span className="name">{ this.props.name }</span>
                 </div>
                 
                 <div className="lifecounter__body">
                     <div className="actions-btns">
-                        <i className="surrender fas fa-flag"></i>
+                        <i onClick={this.surrender} className="surrender fas fa-flag"></i>
                         <i onClick={this.activeTurn} className="skip fas fa-share"></i>
                     </div>
                     <div className="counter">
@@ -64,7 +69,7 @@ class LifeCounter extends Component {
                     </div>
                 </div>
 
-                <div className="defeat-dialog">
+                <div className={"defeat-dialog " + (this.state.defeated ? 'active': '')}>
                     <div className="content">
                         <div className="img-container">
                             <img src={ defeatImg } alt="Defeated"/>
@@ -73,7 +78,7 @@ class LifeCounter extends Component {
                     </div>
                 </div>
 
-                <div className="victory-dialog">
+                <div className={"victory-dialog "}>
                     <div className="content">
                         <div className="img-container">
                             <img src={ winningImg } alt="Defeated"/>

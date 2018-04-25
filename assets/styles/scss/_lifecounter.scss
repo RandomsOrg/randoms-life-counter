@@ -20,8 +20,8 @@
 	margin: 10px;
 	text-align: center;
     font-size: 1.5em;
-    opacity: 0.85;
     @include noselect;
+    opacity: .85;
     &.active {
         opacity: 1;
     }
@@ -90,6 +90,11 @@
         color: $white;
         opacity: 0;
         z-index: -9;
+        @include transition(opacity 2s ease);
+        &.active {
+            opacity: 1;
+            z-index: 3;
+        }
         .img-container {
             width: 7rem;
             height: auto;
