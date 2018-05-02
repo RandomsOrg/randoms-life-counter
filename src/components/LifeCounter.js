@@ -56,7 +56,7 @@ class LifeCounter extends Component {
         return (
             <div className={"lifecounter " + (this.props.activeCard !== this.props.cardID ? 'active' : '') + (this.props.reversible ? ' rotate' : '') }>
                 <div className="lifecounter__header">
-                    <i className={"fas fa-redo-alt btn-rotate " + (this.props.reversible ? '' : 'hide')} onClick={this.rotate}></i>
+                    <i className="fas fa-redo-alt btn-rotate" onClick={this.rotate}></i>
                     <span className="name">{ this.props.name }</span>
                 </div>
                 
