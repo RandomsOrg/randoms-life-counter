@@ -43,11 +43,20 @@ class LifeCounter extends Component {
             defeated: true
         });
     }
-
+    rotate = (e) => {
+        e.target.closest('.lifecounter').classList.toggle("rotate");
+    }
+    componentWillUpdate(nextProps, nextState) {
+        if(nextState.life <= 0) {
+            nextState.defeated = true
+        }
+    }
+    
     render() {
         return (
-            <div className={"lifecounter " + (this.props.activeCard !== this.props.cardID ? 'active' : '')}>
+            <div className={"lifecounter " + (this.props.activeCard !== this.props.cardID ? 'active' : '') + (this.props.reversible ? ' rotate' : '') }>
                 <div className="lifecounter__header">
+                    <i className={"fas fa-redo-alt btn-rotate " + (this.props.reversible ? '' : 'hide')} onClick={this.rotate}></i>
                     <span className="name">{ this.props.name }</span>
                 </div>
                 
